@@ -167,6 +167,9 @@ def user_auth():
     email = data.get('email')
     password = data.get('password')
 
+    if not password or not email:
+        return {'error': 'Dados insuficientes'}, 400
+
     user = User.query.filter_by(email = email).first()
 
     if bcrypt.checkpw(password.encode(), user.password_hash):
