@@ -160,7 +160,7 @@ def user_detail(id):
 
         return {}, 204
 
-@app.route('/login', methods=['POST'])
+@app.route('/login/', methods=['POST'])
 def user_auth():
     data = request.json
     
